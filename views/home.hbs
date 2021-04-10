@@ -1,0 +1,193 @@
+ <!doctype html>
+<html lang="en">
+
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>Chat | Chatvia - Responsive Bootstrap 4 Chat App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Responsive Bootstrap 4 Chat App" name="description" />
+    <meta content="Themesbrand" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+    <!-- magnific-popup css -->
+    <link href="/assets/libs/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css" />
+
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/libs/owl.carousel/assets/owl.carousel.min.css">
+
+    <link rel="stylesheet" href="/assets/libs/owl.carousel/assets/owl.theme.default.min.css">
+
+    <!-- Bootstrap Css -->
+    <link href="/assets/css/bootstrap-dark.min.css" id="bootstrap-dark-style" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="/assets/css/app-dark.min.css" id="app-dark-style" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+
+
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Chat app</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">Logout</a>
+      </li>
+     
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+    <div class=" me-lg-1 ms-lg-0">
+
+    <div class="tab-content">
+
+
+        <!-- Start chats tab-pane -->
+       
+
+                <!-- Start chat-message-list -->
+                <div class="px-2">
+                    <h5 class="mb-3 px-3 font-size-16">All users List</h5>
+
+                    <div class="chat-message-list" data-simplebar>
+
+                        <ul class="list-unstyled chat-list chat-user-list">
+                            {{#each users}}
+                            <li class="alert-dark">
+                                
+                           
+                               {{!-- <a href="/chat?sender={{../sender.name}}{{../sender._id}}1&receiver={{this.name}}{{this._id}}{{../sender._id}}"> --}}
+                           <form method="POST" action="/chat?sender={{../sender._id}}{{this._id}}&receiver={{this._id}}{{../sender._id}}">
+                           
+                          
+                                {{!-- <a href="/chat?sender={{../sender._id}}{{this._id}}&receiver={{this._id}}{{../sender._id}}"> --}}
+                           
+                                    <div class="d-flex">
+                                        {{!-- <div class="chat-user-img online align-self-center me-3 ms-0">
+                                            <img src="assets/images/users/avatar-2.jpg" class="rounded-circle avatar-xs"
+                                                alt="">
+                                            <span class="user-status"></span>
+                                        </div> --}}
+
+                                        <div class="flex-1 overflow-hidden">
+                                            <h5 class="text-truncate font-size-15 mb-1">{{this.name}}</h5>
+                                        
+                                        </div>
+                                        <div class="flex-1 overflow-hidden">
+                                            <h5 class="text-truncate font-size-15 mb-1">{{this.email}}</h5>
+                                        
+                                        </div>
+                                        <div class="flex-1 overflow-hidden">
+                                            <h5 class="text-truncate font-size-15 mb-1">{{this.mobile}}</h5>
+                                        
+                                        </div>
+                                         <div class="flex-1 overflow-hidden">
+                                          <button class="btn btn-primary" type="submit">chat</button>
+                                         
+                           </form>
+                           
+                                        </div>
+                                        {{!-- <div class="font-size-11">05 min</div> --}}
+                                    </div>
+                                </a>
+                            </li>
+                            {{/each}}
+
+                            
+                        </ul>
+                    </div>
+                </div>
+                <!-- End chat-message-list -->
+            </div>
+            <!-- Start chats content -->
+        </div>
+       
+    </div>
+    <!-- end tab content -->
+
+</div>
+    <!-- end  layout wrapper -->
+
+    <!-- JAVASCRIPT -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../javascripts/main.js"></script>
+    <script src="/assets/libs/jquery/jquery.min.js"></script>
+    <script src="/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="/assets/libs/node-waves/waves.min.js"></script>
+
+    <!-- Magnific Popup-->
+    <script src="/assets/libs/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- owl.carousel js -->
+    <script src="/assets/libs/owl.carousel/owl.carousel.min.js"></script>
+
+    <!-- page init -->
+    <script src="/assets/js/pages/index.init.js"></script>
+
+    <script src="/assets/js/app.js"></script>
+
+</body>
+
+</html>
+
+
+{{!-- 
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+
+
+
+<table id="example" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>PhoneNumber</th>
+                <th>chat</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+             {{#each users}}
+               <form method="POST" action="/chat?sender={{../sender._id}}{{this._id}}&receiver={{this._id}}{{../sender._id}}"></form>
+            <tr>
+                <td>Tiger Nixon</td>
+                <td>System Architect</td>
+                <td>Edinburgh</td>
+                <td> <button class="btn btn-primary">chat</button> </td>
+              
+            </tr>
+            </form>
+            {{/each}}
+         
+        </tbody>
+        
+    </table>
+
+    <script>
+        $(document).ready(function() {
+    $('#example').DataTable();
+} );
+    </script> --}}
