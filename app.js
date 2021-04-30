@@ -52,12 +52,6 @@ console.log("the links areee",url);
 //url check
 
 
-
-
-
-
-
-
      const user = getCurrentUser(socket.id)
      console.log("user at app.js",user);
      console.log("mesasage is",msg);
@@ -117,6 +111,7 @@ console.log("the file issss",file);
 var ext =path.extname(file)
 newimageId=newimageId+uniqueid+ext
 
+
 var newfileis = path.join(__dirname, '/public/image-chats/'+newimageId)
 
 
@@ -174,7 +169,7 @@ io.to(user.sender).emit('file', msgFormat.formatFileMessage(user.sender,newimage
 //    })
 
 
-var port = 5000;
+var port = process.env.PORT||5000;
 app.set('port', port);
 server.listen(port);
 // view engine setup
